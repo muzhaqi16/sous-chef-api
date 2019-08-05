@@ -8,6 +8,7 @@ const groceriesRouter = express.Router()
 const bodyParser = express.json()
 
 const serializeGrocery = grocery => ({
+    id: grocery.id,
     name: xss(grocery.name),
     category: grocery.category,
     location: grocery.location,
