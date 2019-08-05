@@ -4,7 +4,8 @@ CREATE TYPE product_category AS ENUM (
     'Fruits',
     'Vegetables',
     'Herbs and Spices',
-    'Oils and Spices',
+    'Oils',
+    'Dressings',
     'Frozen',
     'Canned Foods',
     'Jars',
@@ -22,7 +23,9 @@ CREATE TYPE product_unit AS ENUM(
     'Jar',
     'Bag',
     'lbs',
+    'can',
     'kg',
+    'bottle',
     'gallon',
     'pieces',
     'container'
@@ -39,6 +42,6 @@ CREATE TABLE IF NOT EXISTS groceries (
     unit product_unit NOT NULL,
     notes text,
     price decimal(12,2) NOT NULL,
-    image TEXT DEFAULT 'undefined',
-    user text
+    user_id TEXT,
+    image TEXT DEFAULT 'undefined'
 );
