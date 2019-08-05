@@ -34,11 +34,11 @@ CREATE TABLE IF NOT EXISTS groceries (
     category product_category NOT NULL,
     location storage_location NOT NULL,
     expiry_reminder BOOLEAN DEFAULT false,
-    expiry_date TIMESTAMP DEFAULT now(),
+    expiry_date date DEFAULT now(),
     quantity INTEGER DEFAULT 1 NOT NULL,
     unit product_unit NOT NULL,
     notes text,
     price decimal(12,2) NOT NULL,
-    image TEXT,
+    image TEXT DEFAULT 'undefined',
     user text
 );

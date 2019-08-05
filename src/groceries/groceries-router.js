@@ -31,8 +31,8 @@ groceriesRouter
             .catch(next)
     })
     .post(bodyParser, (req, res, next) => {
-        const { name, category, location, expiry_reminder, expiry_date, quantity, unit, notes, price } = req.body
-        const newGroceryItem = { name, category, location, expiry_reminder, expiry_date, quantity, unit, price, notes }
+        const { name, category, location, expiry_reminder, expiry_date, quantity, unit, notes, price, image } = req.body
+        const newGroceryItem = { name, category, location, expiry_reminder, expiry_date, quantity, unit, price, notes, image }
         console.log(newGroceryItem);
         for (const field of ['name', 'quantity', 'unit']) {
             if (!newGroceryItem[field]) {
