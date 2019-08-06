@@ -1,4 +1,3 @@
-DROP TYPE IF EXISTS product_category;
 CREATE TYPE product_category AS ENUM (
     'Dry Goods',
     'Fruits',
@@ -12,13 +11,13 @@ CREATE TYPE product_category AS ENUM (
     'Bottles'
 );
 
-DROP TYPE IF EXISTS storage_location;
+
 CREATE TYPE storage_location AS ENUM(
     'Freezer',
     'Fridge',
     'Pantry'
 );
-DROP TYPE IF EXISTS product_unit;
+
 CREATE TYPE product_unit AS ENUM(
     'Jar',
     'Bag',
@@ -42,6 +41,6 @@ CREATE TABLE IF NOT EXISTS groceries (
     unit product_unit NOT NULL,
     notes text,
     price decimal(12,2) NOT NULL,
-    user_id TEXT,
+    user_id INTEGER REFERENCES users(id),
     image TEXT DEFAULT 'undefined'
 );
