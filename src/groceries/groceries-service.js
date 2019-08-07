@@ -1,6 +1,6 @@
 const GroceriesService = {
-    getAllGroceries(knex) {
-        return knex.select('*').from('groceries')
+    getAllGroceries(knex, id) {
+        return knex.select('*').from('groceries').where('user_id', id)
     },
     getById(knex, id) {
         return knex.from('groceries').select('*').where('id', id).first()

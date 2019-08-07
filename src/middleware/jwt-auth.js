@@ -23,6 +23,7 @@ function requireAuth(req, res, next) {
 
                 req.user = user
                 next()
+                return null;
             })
             .catch(err => {
                 console.error(err)
@@ -31,6 +32,7 @@ function requireAuth(req, res, next) {
     } catch (error) {
         res.status(401).json({ error: 'Unauthorized request' })
     }
+
 }
 
 module.exports = {

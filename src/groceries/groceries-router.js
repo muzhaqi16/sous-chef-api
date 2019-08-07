@@ -3,6 +3,7 @@ const express = require('express')
 const xss = require('xss')
 const logger = require('../logger')
 const GroceriesService = require('./groceries-service')
+const { requireAuth } = require('../middleware/jwt-auth')
 
 const groceriesRouter = express.Router()
 const bodyParser = express.json()
@@ -23,17 +24,18 @@ const serializeGrocery = grocery => ({
 
 groceriesRouter
     .route('/')
+    .all(requireAuth)
     .get((req, res, next) => {
-        GroceriesService.getAllGroceries(req.app.get('db'))
-            .then(groceries => {
+        GroceriesService.getAllGroceries(req.app.get('db'), req.user.id)
+            .then(groceries =>
                 res.json(groceries.map(serializeGrocery))
-            })
+            )
             .catch(next)
     })
     .post(bodyParser, (req, res, next) => {
         const { name, category, location, expiry_reminder, expiry_date, quantity, unit, notes, price, image } = req.body
         const newGroceryItem = { name, category, location, expiry_reminder, expiry_date, quantity, unit, price, notes, image }
-        console.log(newGroceryItem);
+
         for (const field of ['name', 'quantity', 'unit']) {
             if (!newGroceryItem[field]) {
                 logger.error(`${field} is required`)
@@ -42,6 +44,8 @@ groceriesRouter
                 })
             }
         }
+        newGroceryItem.user_id = req.user.id;
+
         GroceriesService.insertGrocery(
             req.app.get('db'),
             newGroceryItem
