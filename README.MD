@@ -4,27 +4,7 @@ This is an app that tracks your grocery items, lets you create a shopping list a
 ## Demo
 
 - [Live Demo](https://sous-chef.artanmuzhaqi.now.sh/)
-
-## Screenshots
-Landing Page:
-
-![front page](img/landing_page.png)
-
-Recipe Search Page:
-
-![search](img/recipes_page.png)
-
-Groceries Page:
-
-![groceries](img/groceries_page.png)
-
-Add Grocery Item Page:
-
-![add_groceries](img/add_groceries_page.png)
-
-Groceries Page:
-
-![shopping_list](img/shopping_list.png)
+- [Local Demo](http://localhost:8000/api)
 
 ## Set up
 
@@ -36,13 +16,30 @@ Complete the following steps to start a new project (NEW-PROJECT-NAME):
 4. Install the node dependencies `npm install`
 5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
 6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "sous-chef",`
+7. Migrate the database to the latest version
 
 ## Scripts
-
+  
 Start the application `npm start`
 
 Run the tests `npm test`
 
-## Loging In
+Run in development mode `npm run dev`
 
-You can register for an account or use `test` and `Test123!` as username and password
+Deploy to a server `npm run deploy`
+
+Migrate database `npm run migrate`
+
+## Api routes
+
+`/api/groceries`
+    `GET` get all groceries
+    `POST` add a new grocery item
+  `/:grocery_id`
+    `GET` get grocery item by id
+    `DELETE` delete grocery item by id
+    `PATCH` edit grocery item by id
+`/api/auth`
+    `POST` login 
+`/api/users`
+      `POST` add a new user
