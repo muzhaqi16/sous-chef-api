@@ -3,7 +3,7 @@
 This is an app that tracks your grocery items, lets you create a shopping list and search recipes based on items that you already have in your kitchen!
 ## Demo
 
-- [Live Demo](https://sous-chef.artanmuzhaqi.now.sh/)
+- [Live Demo](https://sleepy-reaches-47839.herokuapp.com/api)
 - [Local Demo](http://localhost:8000/api)
 
 ## Set up
@@ -33,13 +33,23 @@ Migrate database `npm run migrate`
 ## Api routes
 
 `/api/groceries`
+
     `GET` get all groceries
+    
     `POST` add a new grocery item
+    
   `/:grocery_id`
+  
     `GET` get grocery item by id
+    
     `DELETE` delete grocery item by id
+    
     `PATCH` edit grocery item by id
+    
 `/api/auth`
+
     `POST` login 
+    
 `/api/users`
+
       `POST` add a new user
