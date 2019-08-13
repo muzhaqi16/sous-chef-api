@@ -1,6 +1,6 @@
 # Sous Chef Api!
 
-This is the api used for the sous-chef (https://github.com/muzhaqi16/sous-chef-client) app that tracks your grocery items, lets you create a shopping list and search recipes based on items that you already have in your kitchen!
+This is the api used for the [sous-chef](https://github.com/muzhaqi16/sous-chef-client) app that tracks your grocery items, lets you create a shopping list and search recipes based on items that you already have in your kitchen!
 ## Demo
 
 - [Live Demo](https://sleepy-reaches-47839.herokuapp.com/api)
